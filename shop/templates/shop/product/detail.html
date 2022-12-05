@@ -5,7 +5,9 @@
 {% endblock %}
 {% block content %}
 <div class="product-detail">
-  <img src="{{ product.image.url }}">
+  <a href="{{ product.image.url }}">
+    <img src="{{ product.image.url }}">
+  </a>
   <h1>{{ product.name }}</h1>
   <h2>
     <a href="{{ product.category.get_absolute_url }}">

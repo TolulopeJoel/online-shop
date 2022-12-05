@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
+from environs import Env
 from pathlib import Path
+
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -137,3 +141,8 @@ CART_SESSION_ID = 'cart'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Stipe configuration
+STRIPE_SECRET_KEY = env.str('STRIPE_SECRET_KEY')
+STRIPE_API_VERSION = env.str('STRIPE_API_VERSION')
+STRIPE_WEBHOOK_SECRET = env.str('STRIPE_WEBHOOK_SECRET')
